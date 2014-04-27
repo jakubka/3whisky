@@ -17,7 +17,7 @@ namespace _3whisky.web
 
         public int SmtpPort
         {
-            get { return 465; }
+            get { return 587; }
         }
 
         public string SmtpUsername

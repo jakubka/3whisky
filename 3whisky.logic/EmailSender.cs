@@ -43,6 +43,7 @@ namespace _3whisky.logic
             using (SmtpClient client = new SmtpClient(_emailConfiguration.SmtpHost, _emailConfiguration.SmtpPort))
             {
                 client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
                 client.Credentials = new NetworkCredential(_emailConfiguration.SmtpUsername, _emailConfiguration.SmtpPassword);
 
                 MailMessage mailMessage = new MailMessage()

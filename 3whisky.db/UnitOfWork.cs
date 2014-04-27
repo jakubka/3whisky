@@ -39,6 +39,7 @@ namespace _3whisky.db
 
         public void CreateOrder(Order order)
         {
+            _context.Products.Attach(order.Product);
             _context.Orders.Add(order);
             _context.SaveChanges();
         }
