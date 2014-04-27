@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 using Ninject;
 using _3whisky.db;
+using _3whisky.web.Models;
+using _3whisky.db.Entities;
 
 namespace _3whisky.web.Controllers
 {
@@ -35,6 +37,42 @@ namespace _3whisky.web.Controllers
             }
 
             return View(product);
+        }
+
+        public ActionResult OrderConfirmation(int orderId)
+        {
+            var unitOfWork = MainKernel.Kernel.Get<IUnitOfWork>();
+            var order = unitOfWork.Orders.SingleOrDefault(o => o.Id == orderId);
+            
+            return View(order);
+        }
+
+        [HttpPost]
+        public ActionResult CreateOrder(CreateOrderModel createOrderModel)
+        {
+            var unitOfWork = MainKernel.Kernel.Get<IUnitOfWork>();
+            var product = unitOfWork.Products.SingleOrDefault(p => p.Enabled && p.Active && p.Id == createOrderModel.ProductId);
+
+            if (product != null && ModelState.IsValid)
+            {
+                var order = new Order()
+                {
+                    Name = createOrderModel.Name,
+                    Email = createOrderModel.Email,
+                    DeliveryAddress = createOrderModel.DeliveryAddress,
+                    ShipmentMethod = createOrderModel.ShipmentMethod,
+                    PaymentMethod = createOrderModel.PaymentMethod,
+                    Note = createOrderModel.Note,
+                    TotalPrice = product.Price,
+                    Product = product,
+                };
+
+                unitOfWork.CreateOrder(order);
+
+                return RedirectToAction("OrderConfirmation", new { orderId = order.Id });
+            }
+
+            return RedirectToAction("Detail", new { id = createOrderModel.ProductId });
         }
 	}
 }

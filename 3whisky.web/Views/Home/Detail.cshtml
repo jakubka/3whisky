@@ -7,4 +7,23 @@
 
 <div class="container">
 	@Html.Raw(Model.LongDescription)
+
+    <form action="@Url.Action("CreateOrder")" method="post">
+
+        Jméno: <input type="text" name="Name" placeholder="Jan Novák" /><br />
+        E-mail: <input type="email" name="Email" placeholder="jan.novak@seznam.cz" /><br />
+        Doprava: 
+            <input type="radio" name="ShipmentMethod" value="ceskaposta" checked="checked"> Česká pošta
+            <input type="radio" name="ShipmentMethod" value="osobni"> Osobní převzeti v Brně
+        <br />
+        Platba:
+            <input type="radio" name="PaymentMethod" value="dobirka" checked="checked"> Dobírka
+            <input type="radio" name="PaymentMethod" value="prevod"> Převodem na účet
+        <br />
+        Doručovací adresa: <input type="text" name="DeliveryAddress" placeholder="Hrnčířská 14, Brno, 60200" /><br />
+        Poznámka: <textarea name="Note"></textarea><br />
+
+        <input type="submit" value="Odeslat objednávku" />
+        <input type="hidden" name="ProductId" value="@Model.Id" />
+    </form>
 </div>
