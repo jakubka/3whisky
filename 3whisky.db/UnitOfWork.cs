@@ -5,12 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 using _3whisky.db.Entities;
+using _3whisky.configuration;
 
 namespace _3whisky.db
 {
     public class UnitOfWork
     {
-        private readonly Context _context = new Context();
+        public static IConfiguration Configuration
+        {
+            get;
+            set;
+        }
+
+        private readonly Context _context = new Context(Configuration);
         
         public IQueryable<Order> Orders
         {
