@@ -36,6 +36,13 @@ namespace _3whisky.db.Entities
         }
 
 
+        public string ImageUrl
+        {
+            get;
+            set;
+        }
+
+
         public decimal Price
         {
             get;
@@ -44,6 +51,13 @@ namespace _3whisky.db.Entities
 
 
         public DateTime Created
+        {
+            get;
+            set;
+        }
+
+
+        public bool Active
         {
             get;
             set;

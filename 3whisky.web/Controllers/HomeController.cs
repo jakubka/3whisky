@@ -17,13 +17,24 @@ namespace _3whisky.web.Controllers
         {
             var unitOfWork = MainKernel.Kernel.Get<IUnitOfWork>();
 
-            return View(unitOfWork.Products.Count());
+            var products = unitOfWork.Products.Where(p => p.Enabled && p.Active).ToList();
+
+            return View(products);
         }
 
 
-        public ActionResult Detail()
+        public ActionResult Detail(int id)
         {
-            return View();
+            var unitOfWork = MainKernel.Kernel.Get<IUnitOfWork>();
+
+            var product = unitOfWork.Products.SingleOrDefault(p => p.Enabled && p.Active && p.Id == id);
+
+            if (product == null)
+            {
+                return Redirect("/404"); // TODO
+            }
+
+            return View(product);
         }
 	}
 }

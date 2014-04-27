@@ -57,7 +57,7 @@ namespace _3whisky.db.Entities
         }
 
 
-        public string ProductId
+        public Product Product
         {
             get;
             set;

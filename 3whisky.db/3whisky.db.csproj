@@ -58,6 +58,14 @@
     <Compile Include="Migrations\201404271721432_Initial.Designer.cs">
       <DependentUpon>201404271721432_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201404271756320_ImageUrl.cs" />
+    <Compile Include="Migrations\201404271756320_ImageUrl.Designer.cs">
+      <DependentUpon>201404271756320_ImageUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404271809451_ProductActive.cs" />
+    <Compile Include="Migrations\201404271809451_ProductActive.Designer.cs">
+      <DependentUpon>201404271809451_ProductActive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IUnitOfWork.cs" />
@@ -70,6 +78,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201404271721432_Initial.resx">
       <DependentUpon>201404271721432_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404271756320_ImageUrl.resx">
+      <DependentUpon>201404271756320_ImageUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404271809451_ProductActive.resx">
+      <DependentUpon>201404271809451_ProductActive.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
