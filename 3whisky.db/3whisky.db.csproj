@@ -36,6 +36,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -47,14 +50,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
+    <Compile Include="DbNinjectModule.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="IDbConfiguration.cs" />
+    <Compile Include="Migrations\201404271721432_Initial.cs" />
+    <Compile Include="Migrations\201404271721432_Initial.Designer.cs">
+      <DependentUpon>201404271721432_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404271756320_ImageUrl.cs" />
+    <Compile Include="Migrations\201404271756320_ImageUrl.Designer.cs">
+      <DependentUpon>201404271756320_ImageUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404271809451_ProductActive.cs" />
+    <Compile Include="Migrations\201404271809451_ProductActive.Designer.cs">
+      <DependentUpon>201404271809451_ProductActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201404271721432_Initial.resx">
+      <DependentUpon>201404271721432_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404271756320_ImageUrl.resx">
+      <DependentUpon>201404271756320_ImageUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404271809451_ProductActive.resx">
+      <DependentUpon>201404271809451_ProductActive.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

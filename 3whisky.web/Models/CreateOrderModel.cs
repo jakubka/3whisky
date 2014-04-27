@@ -1,70 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace _3whisky.db.Entities
+namespace _3whisky.web.Models
 {
-    public class Product
+    public class CreateOrderModel
     {
-        public int Id
+        [Required]
+        [EmailAddress]
+        public string Email
         {
             get;
             set;
         }
 
-
+        [Required]
         public string Name
         {
             get;
             set;
         }
 
-
-        public string ShortDescription
+        public string DeliveryAddress
         {
             get;
             set;
         }
 
 
-        public string LongDescription
+        [DataType(DataType.MultilineText)]
+        public string Note
         {
             get;
             set;
         }
 
 
-        public string ImageUrl
+        public string PaymentMethod
         {
             get;
             set;
         }
 
 
-        public decimal Price
+        public string ShipmentMethod
         {
             get;
             set;
         }
 
 
-        public DateTime Created
-        {
-            get;
-            set;
-        }
-
-
-        public bool Active
-        {
-            get;
-            set;
-        }
-
-
-        public bool Enabled
+        public int ProductId
         {
             get;
             set;

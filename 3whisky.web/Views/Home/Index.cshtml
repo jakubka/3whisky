@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<_3whisky.db.Entities.Product>
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,48 +12,26 @@
     });
 </script>
 
-<div class="jumbotron">
-	<h1>3whisky</h1>
-	<p>Kazdy mesic pro vas vybirame 3 dobre whisky, ktere byste meli koupit jako darek. Zabaleno premiove.</p>
-</div>
 <div class="container">
 	<h2>Cervnova nabidka</h2>
 	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
 </div>
 
 <div class="container-fluid">
-		<div class="col-sm-4">
+    @foreach (var product in Model)
+    {
+        <div class="col-sm-4">
 			<div class="panel">
-				<h3>Glenfiddich 18 y.o</h3>
-				<img class="img-rounded img-responsive" src="http://cdn4.masterofmalt.com/whiskies/p-1987/glenfiddich-18-year-old-whisky.jpg">
+				<h3>@product.Name</h3>
+				<img class="img-rounded img-responsive" src="@product.ImageUrl">
 			    <br />
-				<p>Aroma: lehké a delikátní, šťavnatý košík ovoce, hrušky, třešně, švestky, med.</p>
-				<p>Cena: 1642,- Kč vcetne DPH</p>
-				<a href="/Home/Detail" id="mainpage-detail1" class="btn btn-sm btn-default">Detail</a>
-                <a href="/Home/Detail" id="mainpage-order1" class="btn btn-sm btn-primary">Objednat</a>
+				<p>@product.ShortDescription</p>
+				<p>Cena: @product.Price Kč vcetne DPH</p>
+                
+                <a href="@Url.Action("Detail", new { id = product.Id })" id="mainpage-detail1" class="btn btn-sm btn-default">Detail</a>
+                <a href="@Url.Action("Detail", new { id = product.Id })#order" id="mainpage-order1" class="btn btn-sm btn-primary">Objednat</a>
 			</div>
 		</div>
-		<div class="col-sm-4">
-			<div class="panel">
-				<h3>Dalwhinnie Distillers Edition</h3>
-				<img class="img-rounded img-responsive" src="http://www.drinksupermarket.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/a/dalwhinnie_distillers_edition_1992_highland_single_malt_scotch_whisky_70cl.jpg">
-			    <br />
-				<p>Aroma: oloroso, lékořice, po kořenech, trávová.</p>
-				<p>Cena: 1983,- Kč vcetne DPH</p>
-                <a href="/Home/Detail" id="mainpage-detail2" class="btn btn-sm btn-default">Detail</a>
-                <a href="/Home/Detail" id="mainpage-order2" class="btn btn-sm btn-primary">Objednat</a>
-			</div>
-		</div>	
-		<div class="col-sm-4">
-			<div class="panel">
-				<h3>Balvenie 21 y.o Portwood</h3>
-				<img class="img-rounded img-responsive" src="https://www.forwhiskeylovers.com/sites/default/files/styles/uc_product_full/public/store/balvenie-21-year-old-portwood-speyside-single-malt-750mlfile_14_61.jpg">
-			    <br />
-				<p>Aroma: Parfémové a ovocné, mučenkové plody, rozinky, ořechová suchost, marcipán.</p>
-				<p>Cena: 3201,- Kč vcetne DPH</p>
-                <a href="/Home/Detail" id="mainpage-detail3" class="btn btn-sm btn-default">Detail</a>
-                <a href="/Home/Detail" id="mainpage-order3" class="btn btn-sm btn-primary">Objednat</a>
-			</div>
-		</div>	
+    }
 	</div>
 </div>
