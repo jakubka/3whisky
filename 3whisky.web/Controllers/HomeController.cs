@@ -14,5 +14,11 @@ namespace _3whisky.web.Controllers
         {
             return View();
         }
+
+
+        public ActionResult Detail()
+        {
+            return View();
+        }
 	}
 }
