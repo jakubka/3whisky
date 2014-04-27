@@ -9,15 +9,15 @@ using _3whisky.configuration;
 
 namespace _3whisky.db
 {
-    public class UnitOfWork
+    internal class UnitOfWork : IUnitOfWork
     {
-        public static IConfiguration Configuration
-        {
-            get;
-            set;
-        }
+        private readonly Context _context;
 
-        private readonly Context _context = new Context(Configuration);
+        public UnitOfWork(IDbConfiguration configuration)
+        {
+            _context = new Context(configuration);
+        }
+                
         
         public IQueryable<Order> Orders
         {

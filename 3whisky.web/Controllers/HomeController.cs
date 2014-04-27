@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using Ninject;
+using _3whisky.db;
+
 namespace _3whisky.web.Controllers
 {
     public class HomeController : Controller
@@ -12,7 +15,9 @@ namespace _3whisky.web.Controllers
         // GET: /Index/
         public ActionResult Index()
         {
-            return View();
+            var unitOfWork = MainKernel.Kernel.Get<IUnitOfWork>();
+
+            return View(unitOfWork.Products.Count());
         }
 
 

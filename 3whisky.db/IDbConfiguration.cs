@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _3whisky.configuration
 {
-    public interface IConfiguration
+    public interface IDbConfiguration
     {
         string ConnectionString
         { 

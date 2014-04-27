@@ -17,7 +17,8 @@ namespace _3whisky.db
         {
         }
 
-        public Context(IConfiguration configuration) : base(configuration.ConnectionString)
+        public Context(IDbConfiguration configuration)
+            : base(configuration.ConnectionString)
         {
 
         }

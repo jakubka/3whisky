@@ -1,4 +1,6 @@
-﻿@{
+﻿@model int
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,7 +13,7 @@
 </script>
 
 <div class="jumbotron">
-	<h1>3whisky</h1>
+	<h1>3whisky - @Model</h1>
 	<p>Kazdy mesic pro vas vybirame 3 dobre whisky, ktere byste meli koupit jako darek. Zabaleno premiove.</p>
 </div>
 <div class="container">
