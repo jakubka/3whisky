@@ -115,7 +115,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\OrderConfirmation.cshtml" />
-    <Content Include="zohoverify\verifyforzoho.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -130,19 +129,24 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DefaultEmailConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MainKernel.cs" />
     <Compile Include="Models\CreateOrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebConfigConfiguration.cs" />
+    <Compile Include="DefaultDbConfiguration.cs" />
     <Compile Include="WebNinjectModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\3whisky.db\3whisky.db.csproj">
       <Project>{09488f2b-6696-4955-a7a9-9cfd8297378f}</Project>
       <Name>3whisky.db</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\3whisky.logic\3whisky.logic.csproj">
+      <Project>{8cb1a194-d4c4-4148-90f1-9d8b58841fd6}</Project>
+      <Name>3whisky.logic</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

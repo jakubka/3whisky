@@ -8,6 +8,7 @@ using Ninject;
 using _3whisky.db;
 using _3whisky.web.Models;
 using _3whisky.db.Entities;
+using _3whisky.logic;
 
 namespace _3whisky.web.Controllers
 {
@@ -55,21 +56,22 @@ namespace _3whisky.web.Controllers
 
             if (product != null && ModelState.IsValid)
             {
-                var order = new Order()
+                var orderProcessor = MainKernel.Kernel.Get<IOrderProcessor>();
+
+                var orderData = new OrderData()
                 {
-                    Name = createOrderModel.Name,
                     Email = createOrderModel.Email,
-                    DeliveryAddress = createOrderModel.DeliveryAddress,
-                    ShipmentMethod = createOrderModel.ShipmentMethod,
-                    PaymentMethod = createOrderModel.PaymentMethod,
-                    Note = createOrderModel.Note,
-                    TotalPrice = product.Price,
+                    Name = createOrderModel.Name,
+                    DeliveryAddress= createOrderModel.DeliveryAddress,
+                    Note= createOrderModel.Note,
+                    PaymentMethod= createOrderModel.PaymentMethod,
+                    ShipmentMethod= createOrderModel.ShipmentMethod,
                     Product = product,
                 };
 
-                unitOfWork.CreateOrder(order);
+                var createdOrder = orderProcessor.ProcessOrder(orderData);
 
-                return RedirectToAction("OrderConfirmation", new { orderId = order.Id });
+                return RedirectToAction("OrderConfirmation", new { orderId = createdOrder.Id });
             }
 
             return RedirectToAction("Detail", new { id = createOrderModel.ProductId });

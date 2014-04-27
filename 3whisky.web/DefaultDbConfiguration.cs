@@ -7,7 +7,7 @@ using System.Web;
 
 namespace _3whisky.web
 {
-    internal class WebConfigConfiguration : IDbConfiguration
+    internal class DefaultDbConfiguration : IDbConfiguration
     {
         public string ConnectionString
         {

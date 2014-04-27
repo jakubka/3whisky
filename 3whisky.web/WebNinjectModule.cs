@@ -1,4 +1,5 @@
 ﻿using _3whisky.configuration;
+using _3whisky.logic;
 using Ninject.Modules;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,8 @@ namespace _3whisky.web
     {
         public override void Load()
         {
-            Bind<IDbConfiguration>().To<WebConfigConfiguration>();
+            Bind<IDbConfiguration>().To<DefaultDbConfiguration>();
+            Bind<IEmailConfiguration>().To<DefaultEmailConfiguration>();
         }
     }
 }
