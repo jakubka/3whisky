@@ -48,6 +48,13 @@ namespace _3whisky.web.Controllers
             return View(order);
         }
 
+
+        public ActionResult TermsAndConditions()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         public ActionResult CreateOrder(CreateOrderModel createOrderModel)
         {
