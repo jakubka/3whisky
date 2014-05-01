@@ -9,22 +9,69 @@
 	@Html.Raw(Model.LongDescription)
 
     <a name="order"></a>
-    <form action="@Url.Action("CreateOrder")" method="post">
+<form class="form-horizontal" role="form" action="@Url.Action(" CreateOrder ")" method="post">
+    <div class="form-group">
+        <label for="inputName" class="col-sm-3 control-label">Jméno</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputName" name="Name" placeholder="Jan Novák" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail" class="col-sm-3 control-label">E-mail</label>
+        <div class="col-sm-9">
+            <input type="email" class="form-control" id="inputEmail" name="Email" placeholder="jan.novak@seznam.cz" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Doprava:</label>
+        <div class="col-sm-9">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="ShipmentMethod" value="ceskaposta" checked="checked">Česká pošta
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="ShipmentMethod" value="osobni">Osobní převzeti v Brně
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Platba:</label>
+        <div class="col-sm-9">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="PaymentMethod" value="dobirka" checked="checked">Dobírka
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="PaymentMethod" value="prevod">Převodem na účet
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputDelivery" class="col-sm-3 control-label">Doručovací adresa:</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputDelivery" name="DeliveryAddress" placeholder="Hrnčířská 14, Brno, 60200" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputNote" class="col-sm-3 control-label">Poznámka:</label>
+        <div class="col-sm-9">
+            <textarea name="Note" id="inputNote" class="form-control" rows="4" placeholder="Sem zadejte poznamku"></textarea>
+            <textarea ></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <input type="submit" class="btn btn-default" value="Odeslat objednávku" />
+        </div>
+    </div>
 
-        Jméno: <input type="text" name="Name" placeholder="Jan Novák" /><br />
-        E-mail: <input type="email" name="Email" placeholder="jan.novak@seznam.cz" /><br />
-        Doprava: 
-            <input type="radio" name="ShipmentMethod" value="ceskaposta" checked="checked"> Česká pošta
-            <input type="radio" name="ShipmentMethod" value="osobni"> Osobní převzeti v Brně
-        <br />
-        Platba:
-            <input type="radio" name="PaymentMethod" value="dobirka" checked="checked"> Dobírka
-            <input type="radio" name="PaymentMethod" value="prevod"> Převodem na účet
-        <br />
-        Doručovací adresa: <input type="text" name="DeliveryAddress" placeholder="Hrnčířská 14, Brno, 60200" /><br />
-        Poznámka: <textarea name="Note"></textarea><br />
+    <input type="hidden" name="ProductId" value="@Model.Id" />
+</form>
 
-        <input type="submit" value="Odeslat objednávku" />
-        <input type="hidden" name="ProductId" value="@Model.Id" />
-    </form>
 </div>
