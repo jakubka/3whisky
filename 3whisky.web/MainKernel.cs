@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using _3whisky.db;
 
 namespace _3whisky.web
 {
@@ -17,8 +18,8 @@ namespace _3whisky.web
         public static void Init()
         {
             var kernel = new StandardKernel();
-            kernel.Load(AppDomain.CurrentDomain.GetAssemblies());
-
+            kernel.Load(new DbNinjectModule());
+            kernel.Load(new WebNinjectModule());
             Kernel = kernel;
         }
     }
