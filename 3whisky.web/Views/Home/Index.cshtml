@@ -4,14 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script>
-    $(document).ready(function() {
-        $("a").click(function () {
-            ga('send', 'event', 'link', 'click', 'link id ' + this.id);
-        });
-    });
-</script>
-
 <div class="container">
 	<h2>Cervnova nabidka</h2>
 	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
@@ -28,8 +20,8 @@
 				<p>@product.ShortDescription</p>
 				<p>Cena: @product.Price Kč vcetne DPH</p>
                 
-                <a href="@Url.Action("Detail", new { id = product.Id })" id="mainpage-detail1" class="btn btn-sm btn-default">Detail</a>
-                <a href="@Url.Action("Detail", new { id = product.Id })#order" id="mainpage-order1" class="btn btn-sm btn-primary">Objednat</a>
+                <a href="@Url.Action("Detail", new { id = product.Id })" class="btn btn-sm btn-default">Detail</a>
+                <a href="@Url.Action("Detail", new { id = product.Id })#order" class="btn btn-sm btn-primary">Objednat</a>
 			</div>
 		</div>
     }
