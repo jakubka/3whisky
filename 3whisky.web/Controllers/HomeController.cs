@@ -55,6 +55,12 @@ namespace _3whisky.web.Controllers
         }
 
 
+        public ActionResult AdminTrack()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         public ActionResult CreateOrder(CreateOrderModel createOrderModel)
         {
