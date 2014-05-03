@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 
 using Ninject;
-using _3whisky.db;
-using _3whisky.web.Models;
-using _3whisky.db.Entities;
-using _3whisky.logic;
 
-namespace _3whisky.web.Controllers
+using Whisky.Db;
+using Whisky.Logic.Orders;
+using Whisky.Web.Models;
+
+namespace Whisky.Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -40,11 +37,12 @@ namespace _3whisky.web.Controllers
             return View(product);
         }
 
+
         public ActionResult OrderConfirmation(int orderId)
         {
             var unitOfWork = MainKernel.Kernel.Get<IUnitOfWork>();
             var order = unitOfWork.Orders.SingleOrDefault(o => o.Id == orderId);
-            
+
             return View(order);
         }
 
@@ -75,10 +73,10 @@ namespace _3whisky.web.Controllers
                 {
                     Email = createOrderModel.Email,
                     Name = createOrderModel.Name,
-                    DeliveryAddress= createOrderModel.DeliveryAddress,
-                    Note= createOrderModel.Note,
-                    PaymentMethod= createOrderModel.PaymentMethod,
-                    ShipmentMethod= createOrderModel.ShipmentMethod,
+                    DeliveryAddress = createOrderModel.DeliveryAddress,
+                    Note = createOrderModel.Note,
+                    PaymentMethod = createOrderModel.PaymentMethod,
+                    ShipmentMethod = createOrderModel.ShipmentMethod,
                     Product = product,
                 };
 
@@ -89,5 +87,5 @@ namespace _3whisky.web.Controllers
 
             return RedirectToAction("Detail", new { id = createOrderModel.ProductId });
         }
-	}
+    }
 }

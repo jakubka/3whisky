@@ -1,11 +1,9 @@
 ﻿using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using _3whisky.db;
 
-namespace _3whisky.web
+using Whisky.Db;
+using Whisky.Logic;
+
+namespace Whisky.Web
 {
     public static class MainKernel
     {
@@ -18,8 +16,11 @@ namespace _3whisky.web
         public static void Init()
         {
             var kernel = new StandardKernel();
+
             kernel.Load(new DbNinjectModule());
             kernel.Load(new WebNinjectModule());
+            kernel.Load(new LogicNinjectModule());
+
             Kernel = kernel;
         }
     }

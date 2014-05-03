@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 
-using _3whisky.db.Entities;
-using _3whisky.configuration;
+using Whisky.Db.Entities;
 
-namespace _3whisky.db
+namespace Whisky.Db
 {
     internal class Context : DbContext
     {
@@ -20,7 +14,6 @@ namespace _3whisky.db
         public Context(IDbConfiguration configuration)
             : base(configuration.ConnectionString)
         {
-
         }
 
         public DbSet<Order> Orders { get; set; }

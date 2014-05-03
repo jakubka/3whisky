@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
-using _3whisky.db.Entities;
-using _3whisky.configuration;
+using Whisky.Db.Entities;
 
-namespace _3whisky.db
+namespace Whisky.Db
 {
     public interface IUnitOfWork
     {

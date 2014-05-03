@@ -1,11 +1,8 @@
-﻿using _3whisky.configuration;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
+﻿using System.Configuration;
 
-namespace _3whisky.web
+using Whisky.Db;
+
+namespace Whisky.Web
 {
     internal class DefaultDbConfiguration : IDbConfiguration
     {

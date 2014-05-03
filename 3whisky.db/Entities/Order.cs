@@ -1,14 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace _3whisky.db.Entities
+namespace Whisky.Db.Entities
 {
     public class Order
     {
         public int Id
+        {
+            get;
+            set;
+        }
+
+
+        public string UniqueNumber
         {
             get;
             set;
@@ -43,14 +46,14 @@ namespace _3whisky.db.Entities
         }
 
 
-        public string PaymentMethod
+        public PaymentMethod PaymentMethod
         {
             get;
             set;
         }
 
 
-        public string ShipmentMethod
+        public ShipmentMethod ShipmentMethod
         {
             get;
             set;
@@ -65,6 +68,13 @@ namespace _3whisky.db.Entities
 
 
         public decimal TotalPrice
+        {
+            get;
+            set;
+        }
+
+
+        public DateTime Created
         {
             get;
             set;

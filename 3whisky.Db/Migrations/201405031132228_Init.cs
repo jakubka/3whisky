@@ -1,9 +1,9 @@
-namespace _3whisky.db.Migrations
+namespace Whisky.Db.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
@@ -12,16 +12,20 @@ namespace _3whisky.db.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        UniqueNumber = c.String(),
                         Email = c.String(),
                         Name = c.String(),
                         DeliveryAddress = c.String(),
                         Note = c.String(),
-                        PaymentMethod = c.String(),
-                        ShipmentMethod = c.String(),
-                        ProductId = c.String(),
+                        PaymentMethod = c.Int(nullable: false),
+                        ShipmentMethod = c.Int(nullable: false),
                         TotalPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Created = c.DateTime(nullable: false),
+                        Product_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Products", t => t.Product_Id)
+                .Index(t => t.Product_Id);
             
             CreateTable(
                 "dbo.Products",
@@ -31,8 +35,10 @@ namespace _3whisky.db.Migrations
                         Name = c.String(),
                         ShortDescription = c.String(),
                         LongDescription = c.String(),
+                        ImageUrl = c.String(),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Created = c.DateTime(nullable: false),
+                        Active = c.Boolean(nullable: false),
                         Enabled = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
@@ -41,6 +47,8 @@ namespace _3whisky.db.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.Orders", "Product_Id", "dbo.Products");
+            DropIndex("dbo.Orders", new[] { "Product_Id" });
             DropTable("dbo.Products");
             DropTable("dbo.Orders");
         }

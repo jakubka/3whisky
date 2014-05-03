@@ -1,19 +1,16 @@
-﻿using _3whisky.configuration;
-using _3whisky.logic;
-using Ninject.Modules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Ninject.Modules;
 
-namespace _3whisky.web
+using Whisky.Db;
+using Whisky.Logic.Emails;
+
+namespace Whisky.Web
 {
     public class WebNinjectModule : NinjectModule
     {
         public override void Load()
         {
             Bind<IDbConfiguration>().To<DefaultDbConfiguration>();
-            Bind<IEmailConfiguration>().To<DefaultEmailConfiguration>();
+            Bind<ISmtpConfiguration>().To<DefaultSmtpConfiguration>();
         }
     }
 }

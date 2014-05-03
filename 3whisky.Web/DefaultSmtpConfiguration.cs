@@ -1,14 +1,8 @@
-﻿using _3whisky.configuration;
-using _3whisky.logic;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
+﻿using Whisky.Logic.Emails;
 
-namespace _3whisky.web
+namespace Whisky.Web
 {
-    internal class DefaultEmailConfiguration : IEmailConfiguration
+    internal class DefaultSmtpConfiguration : ISmtpConfiguration
     {
         public string SmtpHost
         {
@@ -28,11 +22,6 @@ namespace _3whisky.web
         public string SmtpPassword
         {
             get { return "4uO8A257MhAe1dRv37qq"; }
-        }
-
-        public string SenderAddress
-        {
-            get { return "info@3whisky.cz"; }
         }
     }
 }

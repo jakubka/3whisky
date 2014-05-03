@@ -1,4 +1,4 @@
-﻿@model _3whisky.db.Entities.Product
+﻿@model Whisky.Db.Entities.Product
 
 @{
 
@@ -9,7 +9,7 @@
 	@Html.Raw(Model.LongDescription)
 
     <a name="order"></a>
-<form class="form-horizontal" role="form" action="@Url.Action(" CreateOrder ")" method="post">
+<form class="form-horizontal" role="form" action="@Url.Action("CreateOrder")" method="post">
     <div class="form-group">
         <label for="inputName" class="col-sm-3 control-label">Jméno</label>
         <div class="col-sm-9">
@@ -27,12 +27,12 @@
         <div class="col-sm-9">
             <div class="radio">
                 <label>
-                    <input type="radio" name="ShipmentMethod" value="ceskaposta" checked="checked">Česká pošta
+                    <input type="radio" name="ShipmentMethod" value="CeskaPosta" checked="checked">Česká pošta
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="ShipmentMethod" value="osobni">Osobní převzeti v Brně
+                    <input type="radio" name="ShipmentMethod" value="Osobni">Osobní převzeti v Brně
                 </label>
             </div>
         </div>
@@ -42,12 +42,12 @@
         <div class="col-sm-9">
             <div class="radio">
                 <label>
-                    <input type="radio" name="PaymentMethod" value="dobirka" checked="checked">Dobírka
+                    <input type="radio" name="PaymentMethod" value="Dobirka" checked="checked">Dobírka
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="PaymentMethod" value="prevod">Převodem na účet
+                    <input type="radio" name="PaymentMethod" value="Prevodem">Převodem na účet
                 </label>
             </div>
         </div>
@@ -62,7 +62,6 @@
         <label for="inputNote" class="col-sm-3 control-label">Poznámka:</label>
         <div class="col-sm-9">
             <textarea name="Note" id="inputNote" class="form-control" rows="4" placeholder="Sem zadejte poznamku"></textarea>
-            <textarea ></textarea>
         </div>
     </div>
     <div class="form-group">

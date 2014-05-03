@@ -1,20 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
-
 using Whisky.Db;
+using Whisky.Db.Entities;
 
-namespace Whisky.Web.Models
+namespace Whisky.Logic.Orders
 {
-    public class CreateOrderModel
+    public class OrderData
     {
-        [Required]
-        [EmailAddress]
         public string Email
         {
             get;
             set;
         }
 
-        [Required]
         public string Name
         {
             get;
@@ -28,7 +24,6 @@ namespace Whisky.Web.Models
         }
 
 
-        [DataType(DataType.MultilineText)]
         public string Note
         {
             get;
@@ -50,7 +45,7 @@ namespace Whisky.Web.Models
         }
 
 
-        public int ProductId
+        public Product Product
         {
             get;
             set;

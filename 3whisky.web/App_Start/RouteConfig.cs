@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace _3whisky.web.App_Start
+namespace Whisky.Web
 {
     public class RouteConfig
     {
