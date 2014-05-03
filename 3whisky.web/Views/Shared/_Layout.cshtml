@@ -19,33 +19,30 @@
 		padding: 0 1em 1em 1em;
 	}
 	</style>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-50424284-2', '3whisky.azurewebsites.net');
+        ga('send', 'pageview');
+    </script>
 </head>
 <body>
-    <div>
-        <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-            ga('create', 'UA-50424284-2', '3whisky.azurewebsites.net');
-            ga('send', 'pageview');
-
-        </script>
-
-        <div class="jumbotron">
-            <h1>3whisky</h1>
-            <p>Každý měsíc vybíráme 3 exkluzivní whisky, které dovážíme přímo ze Skotska.</p>
+    <div class="container">
+        <div class="page-header">
+            <h1>3whisky <small>Každý měsíc vybíráme 3 exkluzivní whisky, které dovážíme přímo ze Skotska.</small></h1>
         </div>
 
         @RenderBody()
 
-        <div class="jumbotron">
+        <footer>
             <h3>Kontakt: info@3whisky.cz</h3>
             <a href="@Url.Action("TermsAndConditions")">Obchodní podmínky</a>
-        </div>
+        </footer>
     </div>
 </body>
 </html>

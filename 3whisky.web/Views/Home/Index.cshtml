@@ -4,26 +4,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
-	<h2>Cervnova nabidka</h2>
-	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-</div>
+<h2>Červnová nabídka</h2>
+<p>
+    V červnu se nám povedlo vybrat obvzlášt podařené whisky.
+    Za prvé tu máme <strong>osmnáctiletého Glenfiddicha</strong>, který v této edici oslní především svou jemnosti a směsí různých chutí.
+    Druhá vybraná whisky je <strong>Dalwhinnie Distillers Edition</strong>. V této sérii se stočilo pouze 2400 láhvi, a proto každý kdo tuto whisky ochutná bude mít zážitek na celý život.
+    A do třetice jsme do výběru zařadili <strong>jednadvacetiletou Potrwoodku z pálenice Balvenie</strong>, která navzdory zvyklostem z této pálenice překvapí svou kouřovatosti a musíme říct, že se ji to velmi daří! Tuto láhev by měl ochutnat každý vyznavač ostřejších skotských whisky.
+</p>
 
-<div class="container-fluid">
+<div class="row">
     @foreach (var product in Model)
     {
         <div class="col-sm-4">
-			<div class="panel">
-				<h3>@product.Name</h3>
-				<img class="img-rounded img-responsive" src="@product.ImageUrl">
-			    <br />
-				<p>@product.ShortDescription</p>
-				<p>Cena: @product.Price Kč vcetne DPH</p>
-                
+            <div class="panel">
+                <h3>@product.Name</h3>
+                <img class="img-rounded img-responsive" src="@product.ImageUrl">
+                <br />
+                <p>@product.ShortDescription</p>
+                <p>Cena: @product.Price Kč vcetne DPH</p>
+
                 <a href="@Url.Action("Detail", new { id = product.Id })" class="btn btn-sm btn-default">Detail</a>
                 <a href="@Url.Action("Detail", new { id = product.Id })#order" class="btn btn-sm btn-primary">Objednat</a>
-			</div>
-		</div>
+            </div>
+        </div>
     }
-	</div>
 </div>
