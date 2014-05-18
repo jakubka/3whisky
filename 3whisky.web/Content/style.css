@@ -31,6 +31,7 @@ em {
 input {
     margin: 0;
 }
+/* /reset */
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -63,6 +64,9 @@ a {
         text-decoration: none;
     }
 
+input, textarea {
+	font-family: 'Open Sans', sans-serif;
+}
 
 table {
     width: 100%;
@@ -407,7 +411,7 @@ table {
 .form-control {
     font-size: 14px;
     border: 2px solid #c0bcb1;
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 12px 2.5%;
     width: 94%;
 }
