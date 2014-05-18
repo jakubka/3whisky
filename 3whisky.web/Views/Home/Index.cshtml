@@ -9,7 +9,7 @@
         <div class="product">
             <div class="product-header">
                 <h3>@product.Name</h3>
-                <p>&hellip; navzdory zvyklostem z teto palenice prekvapi svou kourovatosti.</p>
+                <p>&hellip; navzdory zvyklostem z této pálenice překvapí svou kouřovitostí.</p>
             </div>
             <div class="product-content">
                 <div class="product-image">
@@ -18,7 +18,7 @@
                 <p>@product.ShortDescription</p>
             </div>
             <div class="button-and-price">
-                <span class="product-price">@product.Price Kc <em>vcetne DPH</em></span>
+                <span class="product-price">@((int)product.Price) Kč <em>včetně DPH</em></span>
                 <a class="btn btn-action" href="@Url.Action("Detail", new { id = product.Id })"><i class="ico ico-shopping-cart"></i> Detail</a>
             </div>
         </div>

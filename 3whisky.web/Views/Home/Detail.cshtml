@@ -5,7 +5,7 @@
 }
 <div class="content-container content">
     <div class="navigation">
-        <a href="./">zpet na vypis vsech</a>
+        <a href="./">zpět na výpis všech</a>
     </div>
     <div class="product-detail-image">
         <img src="@Url.Content(@Model.ImageUrl)" alt="detail" />
@@ -16,8 +16,8 @@
         <div class="button-and-price">
             <a class="btn btn-action" href=""><i class="ico ico-shopping-cart"></i> Objednat</a>
             <span class="product-price">
-                @Model.Price Kc
-                <em>vcetne DPH</em>
+                @((int)Model.Price) Kč
+                <em>včetně DPH</em>
             </span>
         </div>
         <article class="product-detail-text">
@@ -30,7 +30,7 @@
     </div>
     <div class="product-detail-form">
         <h2 class="form-header">
-            Zavazna objednavka
+            Závazná objednávka
         </h2>
         <form role="form" action="@Url.Action("CreateOrder")" method="post">
             <div class="form-group">
@@ -73,7 +73,7 @@
             </div>
             <div class="form-group">
                 <label for="inputNote" class="control-label">Poznámka:</label>
-                <textarea name="Note" id="inputNote" class="form-control" rows="4" placeholder="Sem zadejte poznamku"></textarea>
+                <textarea name="Note" id="inputNote" class="form-control" rows="4" placeholder="Sem zadejte poznámku"></textarea>
             </div>
             <div class="form-group form-group-offset">
                 <div>
