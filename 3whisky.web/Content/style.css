@@ -487,6 +487,25 @@ article p {
     .form-group-offset {
         margin-left: 34.1%;
     }
+
+    /* Footer */
+	.footer-col {
+        width: 47%;
+        margin: 0 1.5%;
+        float: left;
+    }
+    .footer-col:nth-child(1) {
+		margin: 0 3% 32px 0;
+    }
+    .footer-col:nth-child(2) {
+		margin: 0 0 32px 3%;
+    }
+    .footer-col.footer-map {
+    	width: 100%;
+    	margin: 0 0 0 0;
+    	float: none;
+    	clear: both;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -549,12 +568,25 @@ article p {
     }
 
     /* Footer > Footer col */
-    .footer-col {
+    .footer-col,
+    .footer-col.footer-map {
         width: 30%;
         margin: 1.6666667%;
         float: left;
+        clear: none;
     }
-
+    .footer-col:nth-child(1) {
+    	width: 31.33333%;
+		margin: 0 1.5% 0 0;
+    }
+    .footer-col:nth-child(2) {
+    	width: 31.33333%;
+		margin: 0 1.5% 0 1.5%;
+    }
+    .footer-col:nth-child(3) {
+    	width: 31.33333%;
+		margin: 0 0 0 1.5%;
+    }
     .mapframe {
         max-height: 300px;
     }
