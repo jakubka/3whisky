@@ -65,7 +65,7 @@ a {
     }
 
 input, textarea {
-	font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 table {
@@ -517,6 +517,10 @@ article p {
             float: none;
             clear: both;
         }
+
+    .footer-map img {
+        border: 1px solid #cec9bd;
+    }
 }
 
 @media (min-width: 1024px) {
