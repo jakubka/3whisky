@@ -89,7 +89,7 @@ table {
 
 .content-container {
     padding: 0 16px;
-    max-width: 1140px;
+    max-width: 580px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -516,6 +516,10 @@ article p {
 }
 
 @media (min-width: 1024px) {
+    .content-container {
+        max-width: 1140px;
+    }
+
     /* Header */
     .header {
         padding-top: 75px;
