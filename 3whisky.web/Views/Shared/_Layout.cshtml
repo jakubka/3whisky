@@ -1,24 +1,16 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>3whisky</title>
-    
+
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<style type="text/css">
-	.panel {
-		border: 1px solid #ddd;
-		padding: 0 1em 1em 1em;
-	}
-	</style>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -32,17 +24,70 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <div class="page-header">
-            <h1>3whisky <small>Každý měsíc vybíráme 3 exkluzivní whisky, které dovážíme přímo ze Skotska.</small></h1>
+    <div class="header">
+        <div class="content-container">
+            <h1 class="logo">
+                <span class="logo-text">
+                    <em>3</em>whisky
+                </span>
+            </h1>
+            <h2>
+                Kazdy mesic vybirame tri exkluzivni whisky,
+                <br />ktere dovazime primo ze Skotska.
+            </h2>
+            <span class="month">Cervenec</span>
         </div>
-
-        @RenderBody()
-
-        <footer>
-            <h3>Kontakt: info@3whisky.cz</h3>
-            <a href="@Url.Action("TermsAndConditions")">Obchodní podmínky</a>
-        </footer>
+    </div>
+    @RenderBody()
+    <div class="footer">
+        <div class="content-container">
+            <div class="footer-col">
+                <h3>Informace</h3>
+                <div class="box">
+                    <a href="mailto:info@3whisky.cz">info@3whisky.cz</a><br />
+                    +420 725 033 478
+                </div>
+                <ul>
+                    <li><a href="">Jak se vyrabi whisky</a></li>
+                    <li><a href="">Historie whisky</a></li>
+                    <li class="delim"><a href="">vsechny clanky</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Kamenna prodejna</h3>
+                <p>
+                    Grohova 45<br />
+                    602 00 Brno - Komin<br />
+                    Ceska Republika
+                </p>
+                <table>
+                    <caption>Oteviraci doba:</caption>
+                    <tr>
+                        <th>pondeli-patek</th>
+                        <td>10.00 - 19.00</td>
+                    </tr>
+                    <tr>
+                        <th>sobota</th>
+                        <td>10.00 - 14.00</td>
+                    </tr>
+                    <tr>
+                        <th>nedele</th>
+                        <td>zavreno</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="footer-col">
+                tady bude mapa
+            </div>
+        </div>
+    </div>
+    <div class="license-footer">
+        <div class="content-container">
+            &copy; 2013. 3whisky.
+            <a href="">Vseobecne obchodni podminky</a> |
+            <a href="">Moznosti platby a dopravy</a> |
+            <a href="">Reklamace</a>
+        </div>
     </div>
 </body>
 </html>

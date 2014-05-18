@@ -3,29 +3,25 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Červnová nabídka</h2>
-<p>
-    V červnu se nám povedlo vybrat obvzlášt podařené whisky.
-    Za prvé tu máme <strong>osmnáctiletého Glenfiddicha</strong>, který v této edici oslní především svou jemnosti a směsí různých chutí.
-    Druhá vybraná whisky je <strong>Dalwhinnie Distillers Edition</strong>. V této sérii se stočilo pouze 2400 láhvi, a proto každý kdo tuto whisky ochutná bude mít zážitek na celý život.
-    A do třetice jsme do výběru zařadili <strong>jednadvacetiletou Potrwoodku z pálenice Balvenie</strong>, která navzdory zvyklostem z této pálenice překvapí svou kouřovatosti a musíme říct, že se ji to velmi daří! Tuto láhev by měl ochutnat každý vyznavač ostřejších skotských whisky.
-</p>
-
-<div class="row">
+<div class="content-container content">
     @foreach (var product in Model)
     {
-        <div class="col-sm-4">
-            <div class="panel">
+        <div class="product">
+            <div class="product-header">
                 <h3>@product.Name</h3>
-                <img class="img-rounded img-responsive" src="@product.ImageUrl">
-                <br />
+                <p>&hellip; navzdory zvyklostem z teto palenice prekvapi svou kourovatosti.</p>
+            </div>
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="@product.ImageUrl" alt="Whisky" />
+                </div>
                 <p>@product.ShortDescription</p>
-                <p>Cena: @product.Price Kč vcetne DPH</p>
-
-                <a href="@Url.Action("Detail", new { id = product.Id })" class="btn btn-sm btn-default">Detail</a>
-                <a href="@Url.Action("Detail", new { id = product.Id })#order" class="btn btn-sm btn-primary">Objednat</a>
+            </div>
+            <div class="button-and-price">
+                <span class="product-price">@product.Price Kc <em>vcetne DPH</em></span>
+                <a class="btn btn-action" href="@Url.Action("Detail", new { id = product.Id })"><i class="ico ico-shopping-cart"></i> Detail</a>
             </div>
         </div>
     }
+    <div class="clearfix"></div>
 </div>
