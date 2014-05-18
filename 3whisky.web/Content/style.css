@@ -338,6 +338,10 @@ table {
     margin-bottom: 16px;
 }
 
+.footer-map img {
+    border: 1px solid #cec9bd;
+}
+
 .box {
     background: #fff;
     padding: 16px;
@@ -517,10 +521,6 @@ article p {
             float: none;
             clear: both;
         }
-
-    .footer-map img {
-        border: 1px solid #cec9bd;
-    }
 }
 
 @media (min-width: 1024px) {
