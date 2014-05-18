@@ -92,6 +92,7 @@ table {
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 
 .content {
@@ -147,15 +148,15 @@ table {
     color: #fff;
     text-align: center;
     font-family: 'Bree Serif', serif;
-    padding-top: 30px; /* Large: 80px; */
+    padding-top: 30px;
 }
 
     .header h2 {
-        font-size: 24px; /* Large: 36px; */
+        font-size: 24px;
         text-shadow: 2px 2px 3px #000;
-        margin-top: 34px; /* Large: 72px; */
-        line-height: 34px; /* Large: 48px; */
-        margin-bottom: 24px; /* Large: 30px; */
+        margin-top: 34px;
+        line-height: 34px;
+        margin-bottom: 24px;
     }
 
 /* Logo */
@@ -170,25 +171,25 @@ table {
     .logo:before {
         content: '';
         display: block;
-        height: 3px; /* Large: 4px; */
+        height: 3px;
         background: #5c4416;
         position: absolute;
         right: 0;
         left: 0;
-        top: 28px; /* Large: 36px; */
+        top: 28px;
         z-index: 0;
     }
 
 .logo-text {
     display: inline-block;
     vertical-align: top;
-    font-size: 24px; /* Large: 30px; */
+    font-size: 24px;
     text-shadow: 2px 2px 3px #000;
 }
 
     .logo-text em {
-        font-size: 72px; /* Large: 100px; */
-        line-height: 48px; /* Large: 62px; */
+        font-size: 72px;
+        line-height: 48px;
         position: relative;
         z-index: 1;
     }
@@ -202,13 +203,16 @@ table {
     margin-top: 16px;
     text-transform: uppercase;
     text-shadow: 2px 2px 3px #000;
-    margin-bottom: 54px; /* Large: 74px; */
+}
+
+.month,
+.product-detail .month {
+    margin-bottom: 54px;
 }
 
 /* Product */
 .product {
     margin: 0 0 64px;
-    /*border: 1px solid red;*/
 }
 
 /* Product > Header */
@@ -319,7 +323,7 @@ table {
     .footer h3 {
         font-family: 'Bree Serif', serif;
         font-size: 24px;
-        margin-bottom: 36px;
+        margin-bottom: 16px;
     }
 
 .footer-col {
@@ -489,26 +493,57 @@ article p {
     }
 
     /* Footer */
-	.footer-col {
+    .footer-col {
         width: 47%;
         margin: 0 1.5%;
         float: left;
     }
-    .footer-col:nth-child(1) {
-		margin: 0 3% 32px 0;
-    }
-    .footer-col:nth-child(2) {
-		margin: 0 0 32px 3%;
-    }
-    .footer-col.footer-map {
-    	width: 100%;
-    	margin: 0 0 0 0;
-    	float: none;
-    	clear: both;
-    }
+
+        .footer-col:nth-child(1) {
+            margin: 0 3% 32px 0;
+        }
+
+        .footer-col:nth-child(2) {
+            margin: 0 0 32px 3%;
+        }
+
+        .footer-col.footer-map {
+            width: 100%;
+            margin: 0 0 0 0;
+            float: none;
+            clear: both;
+        }
 }
 
 @media (min-width: 1024px) {
+    /* Header */
+    .header {
+        padding-top: 75px;
+    }
+
+        .header h2 {
+            font-size: 36px;
+            margin-top: 72px;
+            line-height: 48px;
+            margin-bottom: 30px;
+        }
+
+    /* Header > Logo */
+    .logo:before {
+        height: 4px;
+        top: 39px;
+    }
+
+    .logo-text {
+        font-size: 32px;
+        font-weight: normal;
+    }
+
+        .logo-text em {
+            font-size: 102px;
+            line-height: 66px;
+        }
+
     /* Month */
     .month {
         margin-bottom: 282px;
@@ -575,20 +610,42 @@ article p {
         float: left;
         clear: none;
     }
-    .footer-col:nth-child(1) {
-    	width: 31.33333%;
-		margin: 0 1.5% 0 0;
-    }
-    .footer-col:nth-child(2) {
-    	width: 31.33333%;
-		margin: 0 1.5% 0 1.5%;
-    }
-    .footer-col:nth-child(3) {
-    	width: 31.33333%;
-		margin: 0 0 0 1.5%;
-    }
+
+        .footer-col:nth-child(1) {
+            width: 31.33333%;
+            margin: 0 1.5% 0 0;
+        }
+
+        .footer-col:nth-child(2) {
+            width: 31.33333%;
+            margin: 0 1.5% 0 1.5%;
+        }
+
+        .footer-col:nth-child(3) {
+            width: 31.33333%;
+            margin: 0 0 0 1.5%;
+        }
+
     .mapframe {
         max-height: 300px;
+    }
+
+    /* Product Detail */
+    .product-detail .header {
+        overflow: hidden;
+    }
+
+    .product-detail h2 {
+        font-size: 22px;
+        line-height: 34px;
+        margin-top: 32px;
+        font-weight: normal;
+    }
+
+    .product-detail .month {
+        position: absolute;
+        right: 16px;
+        top: 101px;
     }
 }
 
