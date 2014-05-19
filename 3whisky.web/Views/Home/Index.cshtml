@@ -8,12 +8,16 @@
 {
     <div class="product">
         <div class="product-header">
-            <h3>@product.Name</h3>
+            <a href="@Url.Action("Detail", new { id = product.Id })">
+                <h3>@product.Name</h3>
+            </a>
             <p>&hellip; @Html.Raw(product.PersonaDescription).</p>
         </div>
         <div class="product-content">
             <div class="product-image">
-                <img src="@product.ImageUrl" alt="@product.Name" />
+                <a href="@Url.Action("Detail", new { id = product.Id })">
+                    <img src="@product.ImageUrl" alt="@product.Name" />
+                </a>
             </div>
             <p>@product.ShortDescription</p>
         </div>
