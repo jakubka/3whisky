@@ -3,25 +3,24 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="content-container content">
-    @foreach (var product in Model)
-    {
-        <div class="product">
-            <div class="product-header">
-                <h3>@product.Name</h3>
-                <p>&hellip; @Html.Raw(product.PersonaDescription).</p>
-            </div>
-            <div class="product-content">
-                <div class="product-image">
-                    <img src="@product.ImageUrl" alt="@product.Name" />
-                </div>
-                <p>@product.ShortDescription</p>
-            </div>
-            <div class="button-and-price">
-                <span class="product-price">@((int)product.Price) Kč <em>včetně DPH</em></span>
-                <a class="btn btn-action" href="@Url.Action("Detail", new { id = product.Id })"><i class="ico ico-shopping-cart"></i> Detail</a>
-            </div>
+
+@foreach (var product in Model)
+{
+    <div class="product">
+        <div class="product-header">
+            <h3>@product.Name</h3>
+            <p>&hellip; @Html.Raw(product.PersonaDescription).</p>
         </div>
-    }
-    <div class="clearfix"></div>
-</div>
+        <div class="product-content">
+            <div class="product-image">
+                <img src="@product.ImageUrl" alt="@product.Name" />
+            </div>
+            <p>@product.ShortDescription</p>
+        </div>
+        <div class="button-and-price">
+            <span class="product-price">@((int) product.Price) Kč <em>včetně DPH</em></span>
+            <a class="btn btn-action" href="@Url.Action("Detail", new { id = product.Id })"><i class="ico ico-shopping-cart"></i> Detail</a>
+        </div>
+    </div>
+}
+<div class="clearfix"></div>

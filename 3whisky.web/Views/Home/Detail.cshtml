@@ -4,80 +4,79 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.BodyCssClass = "product-detail";
 }
-<div class="content-container content">
-    <div class="navigation">
-        <a href="@Url.Content("~/")">zpět na výpis všech</a>
+
+<div class="navigation">
+    <a href="@Url.Content("~/")">zpět na výpis všech</a>
+</div>
+<div class="product-detail-image">
+    <img src="@Url.Content(@Model.ImageUrl)" alt="detail" />
+</div>
+<div class="product-detail-content">
+    <h1 class="product-detail-name">@Model.Name</h1>
+    <p>@Model.DetailUnderName</p>
+    <div class="button-and-price">
+        <a class="btn btn-action" href="#orderheader"><i class="ico ico-shopping-cart"></i> Objednat</a>
+        <span class="product-price">
+            @((int) Model.Price) Kč
+            <em>včetně DPH</em>
+        </span>
     </div>
-    <div class="product-detail-image">
-        <img src="@Url.Content(@Model.ImageUrl)" alt="detail" />
-    </div>
-    <div class="product-detail-content">
-        <h1 class="product-detail-name">@Model.Name</h1>
-        <p>@Model.DetailUnderName</p>
-        <div class="button-and-price">
-            <a class="btn btn-action" href="#orderheader"><i class="ico ico-shopping-cart"></i> Objednat</a>
-            <span class="product-price">
-                @((int)Model.Price) Kč
-                <em>včetně DPH</em>
-            </span>
+    <article class="product-detail-text">
+        @Html.Raw(Model.LongDescription)
+    </article>
+</div>
+<div class="product-detail-form">
+    <h2 class="form-header" id="orderheader">
+        Závazná objednávka
+    </h2>
+    <form role="form" action="@Url.Action("CreateOrder")" method="post">
+        <div class="form-group">
+            <label for="inputName" class="control-label">Jméno</label>
+            <input type="text" class="form-control" id="inputName" name="Name" placeholder="Jan Novák">
         </div>
-        <article class="product-detail-text">
-            @Html.Raw(Model.LongDescription)
-        </article>
-    </div>
-    <div class="product-detail-form">
-        <h2 class="form-header" id="orderheader">
-            Závazná objednávka
-        </h2>
-        <form role="form" action="@Url.Action("CreateOrder")" method="post">
-            <div class="form-group">
-                <label for="inputName" class="control-label">Jméno</label>
-                <input type="text" class="form-control" id="inputName" name="Name" placeholder="Jan Novák">
+        <div class="form-group">
+            <label for="inputEmail" class="control-label">E-mail</label>
+            <input type="email" class="form-control" id="inputEmail" name="Email" placeholder="jan.novak@seznam.cz">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Doprava:</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="ShipmentMethod" value="CeskaPosta" checked="checked">Česká pošta
+                </label>
             </div>
-            <div class="form-group">
-                <label for="inputEmail" class="control-label">E-mail</label>
-                <input type="email" class="form-control" id="inputEmail" name="Email" placeholder="jan.novak@seznam.cz">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="ShipmentMethod" value="Osobni">Osobní převzeti v Brně
+                </label>
             </div>
-            <div class="form-group">
-                <label class="control-label">Doprava:</label>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="ShipmentMethod" value="CeskaPosta" checked="checked">Česká pošta
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="ShipmentMethod" value="Osobni">Osobní převzeti v Brně
-                    </label>
-                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Platba:</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="PaymentMethod" value="Dobirka" checked="checked">Dobírka
+                </label>
             </div>
-            <div class="form-group">
-                <label class="control-label">Platba:</label>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="PaymentMethod" value="Dobirka" checked="checked">Dobírka
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="PaymentMethod" value="Prevodem">Převodem na účet
-                    </label>
-                </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="PaymentMethod" value="Prevodem">Převodem na účet
+                </label>
             </div>
-            <div class="form-group">
-                <label for="inputDelivery" class="control-label">Doručovací adresa:</label>
-                <input type="text" class="form-control" id="inputDelivery" name="DeliveryAddress" placeholder="Hrnčířská 14, Brno, 60200">
+        </div>
+        <div class="form-group">
+            <label for="inputDelivery" class="control-label">Doručovací adresa:</label>
+            <input type="text" class="form-control" id="inputDelivery" name="DeliveryAddress" placeholder="Hrnčířská 14, Brno, 60200">
+        </div>
+        <div class="form-group">
+            <label for="inputNote" class="control-label">Poznámka:</label>
+            <textarea name="Note" id="inputNote" class="form-control" rows="4" placeholder="Sem napište poznámku&hellip;"></textarea>
+        </div>
+        <div class="form-group form-group-offset">
+            <div>
+                <input type="submit" class="btn btn-action" value="Odeslat objednávku">
             </div>
-            <div class="form-group">
-                <label for="inputNote" class="control-label">Poznámka:</label>
-                <textarea name="Note" id="inputNote" class="form-control" rows="4" placeholder="Sem napište poznámku&hellip;"></textarea>
-            </div>
-            <div class="form-group form-group-offset">
-                <div>
-                    <input type="submit" class="btn btn-action" value="Odeslat objednávku">
-                </div>
-            </div>
-            <input type="hidden" name="ProductId" value="@Model.Id" />
-        </form>
-    </div>
+        </div>
+        <input type="hidden" name="ProductId" value="@Model.Id" />
+    </form>
 </div>

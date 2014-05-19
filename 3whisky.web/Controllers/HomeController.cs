@@ -87,5 +87,11 @@ namespace Whisky.Web.Controllers
 
             return RedirectToAction("Detail", new { id = createOrderModel.ProductId });
         }
+
+
+        public ActionResult Contact()
+        {
+            return View("Contact");
+        }
     }
 }
