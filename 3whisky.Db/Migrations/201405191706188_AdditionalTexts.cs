@@ -1,0 +1,20 @@
+namespace Whisky.Db.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class AdditionalTexts : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Products", "DetailUnderName", c => c.String());
+            AddColumn("dbo.Products", "PersonaDescription", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.Products", "PersonaDescription");
+            DropColumn("dbo.Products", "DetailUnderName");
+        }
+    }
+}

@@ -19,11 +19,10 @@ namespace Whisky.Db.Migrations
             {
                 Id = 1,
                 Name = "Glenfiddich 18 y.o",
+                DetailUnderName = "0,7l, 40%, single malt",
+                PersonaDescription = "vhodná pro baby",
                 ShortDescription = "Aroma: lehké a delikátní, štavnatý košík ovoce, hrušky, trešne, švestky, med.",
-                LongDescription = @"<img class=""pull-left img-rounded img-responsive"" src=""https://www.forwhiskeylovers.com/sites/default/files/styles/uc_product_full/public/store/balvenie-21-year-old-portwood-speyside-single-malt-750mlfile_14_61.jpg"">
-<h2>Balvenie 21 y.o Portwood</h2>
-0,7l, 40%, single malt
-<h3>Hodnocení whisky podle M. Jacksona (Whisky Magazin):</h3>
+                LongDescription = @"<h3>Hodnocení whisky podle M. Jacksona (Whisky Magazin):</h3>
 <p>
 <b>Aroma:</b><br />
 Parfémové a ovocné, mucenkové plody, rozinky, orechová suchost, marcipán.
@@ -45,11 +44,10 @@ Ovocné a zralé, príjemne hroznové a zároven kourové.
             {
                 Id = 2,
                 Name = "Dalwhinnie Distillers Edition",
+                DetailUnderName = "0,7l, 40%, single malt",
+                PersonaDescription = "vhodná pro zaèateèníky",
                 ShortDescription = "Aroma: oloroso, lékorice, po korenech, trávová.",
-                LongDescription = @"<img class=""pull-left img-rounded img-responsive"" src=""https://www.forwhiskeylovers.com/sites/default/files/styles/uc_product_full/public/store/balvenie-21-year-old-portwood-speyside-single-malt-750mlfile_14_61.jpg"">
-<h2>Balvenie 21 y.o Portwood</h2>
-0,7l, 40%, single malt
-<h3>Hodnocení whisky podle M. Jacksona (Whisky Magazin):</h3>
+                LongDescription = @"<h3>Hodnocení whisky podle M. Jacksona (Whisky Magazin):</h3>
 <p>
 <b>Aroma:</b><br />
 Parfémové a ovocné, mucenkové plody, rozinky, orechová suchost, marcipán.
@@ -69,13 +67,12 @@ Ovocné a zralé, príjemne hroznové a zároven kourové.
                 Active = true,
             }, new Product()
             {
-                Id = 2,
+                Id = 3,
                 Name = "Balvenie 21 y.o Portwood",
+                DetailUnderName = "0,7l, 40%, single malt",
+                PersonaDescription = "vhodná pro všechny zkušené pijany",
                 ShortDescription = "Aroma: Parfémové a ovocné, mucenkové plody, rozinky, orechová suchost, marcipán.",
-                LongDescription = @"<img class=""pull-left img-rounded img-responsive"" src=""https://www.forwhiskeylovers.com/sites/default/files/styles/uc_product_full/public/store/balvenie-21-year-old-portwood-speyside-single-malt-750mlfile_14_61.jpg"">
-<h2>Balvenie 21 y.o Portwood</h2>
-0,7l, 40%, single malt
-<h3>Hodnocení whisky podle M. Jacksona (Whisky Magazin):</h3>
+                LongDescription = @"<h3>Hodnocení whisky podle M. Jacksona (Whisky Magazin):</h3>
 <p>
 <b>Aroma:</b><br />
 Parfémové a ovocné, mucenkové plody, rozinky, orechová suchost, marcipán.

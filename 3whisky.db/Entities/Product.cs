@@ -18,6 +18,20 @@ namespace Whisky.Db.Entities
         }
 
 
+        public string DetailUnderName
+        {
+            get;
+            set;
+        }
+
+
+        public string PersonaDescription
+        {
+            get;
+            set;
+        }
+
+
         public string ShortDescription
         {
             get;

@@ -9,11 +9,11 @@
         <div class="product">
             <div class="product-header">
                 <h3>@product.Name</h3>
-                <p>&hellip; navzdory zvyklostem z této pálenice překvapí svou kouřovitostí.</p>
+                <p>&hellip; @Html.Raw(product.PersonaDescription).</p>
             </div>
             <div class="product-content">
                 <div class="product-image">
-                    <img src="@product.ImageUrl" alt="Whisky" />
+                    <img src="@product.ImageUrl" alt="@product.Name" />
                 </div>
                 <p>@product.ShortDescription</p>
             </div>
