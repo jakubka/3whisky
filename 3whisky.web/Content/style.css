@@ -445,6 +445,16 @@ textarea.form-control {
     cursor: pointer;
 }
 
+/* TODO (start): uprav styly pro validaci formu */
+input[disabled] {
+    background: grey !important; 
+    cursor: default;
+}
+input.ng-invalid {
+    border: 1px solid red !important;
+}
+/* TODO (end): uprav styly pro validaci formu */
+
 /* Articles */
 article h2 {
     font-size: 24px;

@@ -25,48 +25,54 @@
         @Html.Raw(Model.LongDescription)
     </article>
 </div>
-<div class="product-detail-form">
+<div class="product-detail-form" data-ng-controller="ProductDetailController">
     <h2 class="form-header" id="orderheader">
         Závazná objednávka
     </h2>
-    <form role="form" action="@Url.Action("CreateOrder")" method="post">
+    <form name="orderForm" role="form" action="@Url.Action("CreateOrder")" method="post" novalidate>
+        <pre>{{order|json}}</pre>
         <div class="form-group">
             <label for="inputName" class="control-label">Jméno</label>
-            <input type="text" class="form-control" id="inputName" name="Name" placeholder="Jan Novák">
+            <input type="text" data-ng-model="order.userName" required class="form-control" id="inputName" name="Name" placeholder="Jan Novák">
+            <p ng-show="orderForm.Name.$invalid && !orderForm.Name.$pristine" class="validation-error-message">Vaše jméno je povinný údaj.</p>
         </div>
         <div class="form-group">
             <label for="inputEmail" class="control-label">E-mail</label>
-            <input type="email" class="form-control" id="inputEmail" name="Email" placeholder="jan.novak@seznam.cz">
+            <input type="email" data-ng-model="order.email" required class="form-control" id="inputEmail" name="Email" placeholder="jan.novak@seznam.cz">
+            <p ng-show="orderForm.Email.$invalid && !orderForm.Email.$pristine" class="validation-error-message">Vyplněný email není ve správném formátu.</p>
         </div>
         <div class="form-group">
             <label class="control-label">Doprava:</label>
             <div class="radio">
                 <label>
-                    <input type="radio" name="ShipmentMethod" value="CeskaPosta" checked="checked">Česká pošta
+                    <input type="radio" data-ng-model="order.shipmentMethod" required data-ng-change="shipmentMethodChanged(order.shipmentMethod)" name="ShipmentMethod" value="CeskaPosta" checked="checked">Česká pošta
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="ShipmentMethod" value="Osobni">Osobní převzeti v Brně
+                    <input type="radio" data-ng-model="order.shipmentMethod" required data-ng-change="shipmentMethodChanged(order.shipmentMethod)" name="ShipmentMethod" value="Osobni">Osobní převzetí v Brně
                 </label>
             </div>
+            <p ng-show="orderForm.ShipmentMethod.$invalid && !orderForm.ShipmentMethod.$pristine" class="validation-error-message">You name is required.</p>
         </div>
         <div class="form-group">
             <label class="control-label">Platba:</label>
             <div class="radio">
                 <label>
-                    <input type="radio" name="PaymentMethod" value="Dobirka" checked="checked">Dobírka
+                    <input type="radio" data-ng-model="order.paymentMethod" required name="PaymentMethod" value="Dobirka" checked="checked">{{personalPaymentMethodText}}
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="PaymentMethod" value="Prevodem">Převodem na účet
+                    <input type="radio" data-ng-model="order.paymentMethod" required name="PaymentMethod" value="Prevodem">Převodem na účet předem
                 </label>
             </div>
+            <p ng-show="orderForm.PaymentMethod.$invalid && !orderForm.PaymentMethod.$pristine" class="validation-error-message">You name is required.</p>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-show="showShippingAddressInput">
             <label for="inputDelivery" class="control-label">Doručovací adresa:</label>
-            <input type="text" class="form-control" id="inputDelivery" name="DeliveryAddress" placeholder="Hrnčířská 14, Brno, 60200">
+            <input type="text" data-ng-model="order.inputDelivery" ng-required="showShippingAddressInput" class="form-control" id="inputDelivery" name="DeliveryAddress" placeholder="Hrnčířská 14, Brno, 60200">
+            <p ng-show="orderForm.DeliveryAddress.$invalid && !orderForm.DeliveryAddress.$pristine" class="validation-error-message">You name is required.</p>
         </div>
         <div class="form-group">
             <label for="inputNote" class="control-label">Poznámka:</label>
@@ -74,9 +80,12 @@
         </div>
         <div class="form-group form-group-offset">
             <div>
-                <input type="submit" class="btn btn-action" value="Odeslat objednávku">
+                <input data-ng-disabled="orderForm.$invalid" type="submit" class="btn btn-action" value="Odeslat objednávku">
             </div>
         </div>
         <input type="hidden" name="ProductId" value="@Model.Id" />
     </form>
 </div>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Vendor/angular.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/main.js")"></script>
