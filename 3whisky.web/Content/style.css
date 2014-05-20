@@ -363,6 +363,7 @@ table {
 /* License Footer */
 .license-footer {
     padding: 16px 16px 48px;
+    line-height: 24px;
 }
 
 /* Product detail */
