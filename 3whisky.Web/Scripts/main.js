@@ -4,16 +4,23 @@
     var ProductDetailController = ['$scope', function ($scope) {
         $scope.order = {};
         $scope.personalPaymentMethodText = "Dobírka";
+        $scope.personalPaymentMethodValue = 'Dobirka';
         $scope.showShippingAddressInput = true;
+        
+        $scope.totalPrice = productPrice;
 
-        $scope.shipmentMethodChanged = function (currentShipmentMethod) {
+        $scope.shipmentMethodChanged = function (currentShipmentMethod, priceForShipment) {
             if (currentShipmentMethod === 'CeskaPosta') {
                 $scope.personalPaymentMethodText = "Dobírka";
+                $scope.personalPaymentMethodValue = 'Dobirka';
                 $scope.showShippingAddressInput = true;
             } else {
                 $scope.personalPaymentMethodText = "Hotově při odběru";
+                $scope.personalPaymentMethodValue = 'PriPrevzeti';
                 $scope.showShippingAddressInput = false;
             }
+
+            $scope.totalPrice = productPrice + priceForShipment;
         }
     }];
 

@@ -48,6 +48,7 @@
     <Compile Include="Emails\EmailSender\IEmailSender.cs" />
     <Compile Include="Emails\ISmtpConfiguration.cs" />
     <Compile Include="LogicNinjectModule.cs" />
+    <Compile Include="Orders\IFeeConfiguration.cs" />
     <Compile Include="Orders\OrderProcessor\IOrderProcessor.cs" />
     <Compile Include="Orders\OrderData.cs" />
     <Compile Include="Orders\OrderProcessor\OrderProcessor.cs" />

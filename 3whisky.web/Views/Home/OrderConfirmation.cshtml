@@ -14,4 +14,10 @@
     ga('ecommerce:send');
 </script>
 
-Děkujeme nákup! Na zadaný email (@Model.Email) bylo odesláno potvrzení a doplňující informace.
+<h1>Objednávka odeslána</h1>
+
+<p>Děkujeme za nákup! Na zadaný email (@Model.Email) bylo odesláno potvrzení a doplňující informace.</p>
+
+<p>
+    @Html.ActionLink("Návrat na hlavní stránku", "Home", "Index")
+</p>

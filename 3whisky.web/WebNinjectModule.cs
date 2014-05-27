@@ -2,6 +2,7 @@
 
 using Whisky.Db;
 using Whisky.Logic.Emails;
+using Whisky.Logic.Orders;
 
 namespace Whisky.Web
 {
@@ -11,6 +12,7 @@ namespace Whisky.Web
         {
             Bind<IDbConfiguration>().To<DefaultDbConfiguration>();
             Bind<ISmtpConfiguration>().To<DefaultSmtpConfiguration>();
+            Bind<IFeeConfiguration>().To<DefaultFeeConfiguration>();
         }
     }
 }
