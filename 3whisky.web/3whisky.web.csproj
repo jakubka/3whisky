@@ -120,7 +120,6 @@
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\OrderConfirmation.cshtml" />
     <Content Include="Views\Home\TermsAndConditions.cshtml" />
-    <Content Include="Views\Home\AdminTrack.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
