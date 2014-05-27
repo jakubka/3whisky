@@ -9,7 +9,6 @@
     ga('require', 'ecommerce', 'ecommerce.js');
     ga('ecommerce:addItem', {
         id: '@Model.UniqueNumber',
-        name: '@Model.Product.Name',
         revenue: '@Model.TotalPrice',
     });
     ga('ecommerce:send');
