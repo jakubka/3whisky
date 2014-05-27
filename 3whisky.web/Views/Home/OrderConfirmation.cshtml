@@ -5,4 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+    ga('require', 'ecommerce', 'ecommerce.js');
+    ga('ecommerce:addItem', {
+        id: '@Model.UniqueNumber',
+        name: '@Model.Product.Name',
+        revenue: '@Model.TotalPrice',
+    });
+    ga('ecommerce:send');
+</script>
+
 Děkujeme nákup! Na zadaný email (@Model.Email) bylo odesláno potvrzení a doplňující informace.
