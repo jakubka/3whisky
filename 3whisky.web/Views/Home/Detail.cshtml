@@ -33,7 +33,6 @@
         Závazná objednávka
     </h2>
     <form name="orderForm" role="form" action="@Url.Action("CreateOrder")" method="post" novalidate>
-        <pre>{{order|json}}</pre>
         <div class="form-group">
             <label for="inputName" class="control-label">Jméno</label>
             <input type="text" data-ng-model="order.userName" required class="form-control" id="inputName" name="Name" placeholder="Jan Novák">
