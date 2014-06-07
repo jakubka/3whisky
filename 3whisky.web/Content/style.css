@@ -106,6 +106,7 @@ table {
 .content {
     margin-top: 32px;
     margin-bottom: 64px;
+    min-height: 280px;
 }
 
 /* Buttons */
