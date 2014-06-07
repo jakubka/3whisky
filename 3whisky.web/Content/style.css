@@ -448,9 +448,9 @@ textarea.form-control {
 
 /* Editace formulare */
 input[disabled] {
-    /*TODO*/
-    background: grey !important; 
-    cursor: default;
+    background: #ccc !important;
+    cursor: not-allowed;
+    border: 1px solid #bbb;
 }
 .ng-invalid {
     border-color: #a94442 !important;
