@@ -420,10 +420,10 @@ table {
 
 .form-control {
     font-size: 14px;
-    border: 1px solid #c0bcb1;
     border-radius: 4px;
     padding: 12px 2.5%;
     width: 94%;
+    border: 1px solid #c0bcb1;
 }
 
 textarea.form-control {
@@ -686,6 +686,12 @@ article p {
         position: absolute;
         right: 16px;
         top: 101px;
+    }
+
+    /* Form */
+    .form-control {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
